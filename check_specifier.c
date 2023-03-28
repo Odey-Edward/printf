@@ -4,7 +4,6 @@
 /**
 * check_specifier - return a pionter with the matching format
 * @c: format specifier
-* @args: argument list
 * Return: pointer a pointer to a function
 */
 int (*check_specifier(const char *c))(va_list args)

@@ -12,7 +12,7 @@ int print_str(va_list arg);
 int print_cent(va_list arg);
 
 /**
-* struct argList - structure for our format and the corresponding function
+* struct argsList - structure for our format and the corresponding function
 * @ch: pointer to a character
 * @f: pointer to a function
 */

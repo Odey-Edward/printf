@@ -14,7 +14,7 @@ int print_char(va_list arg)
 
 	c = va_arg(arg, int);
 
-	count = write(1, &c, 1);
+	count = _putchar(c);
 	return (count);
 }
 
@@ -37,9 +37,8 @@ int print_str(va_list arg)
 	i = 0;
 	while (*(str + i))
 	{
-		write(1, &(*(str + i)), 1);
+		count += _putchar(str[i]);
 		i++;
-		count++;
 	}
 	return (count);
 }
@@ -60,7 +59,7 @@ int print_cent(va_list arg)
 	c = va_arg(percent, int);
 	c = '%';
 
-	count = write(1, &c, 1);
+	count += _putchar(c);
 	va_end(percent);
 	return (count);
 }

@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
 * check_specifier - return a pionter with the matching format

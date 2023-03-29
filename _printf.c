@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * _printf - produces output according to a format
@@ -20,7 +19,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			value = write(1, &format[i], 1);
+			value = _putchar(format[i]);
 			count += value;
 			i++;
 			continue;

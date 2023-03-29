@@ -10,6 +10,7 @@ int (*check_specifier(const char *c))(va_list arg);
 int print_char(va_list arg);
 int print_str(va_list arg);
 int print_cent(va_list arg);
+int _putchar(char c);
 
 /**
 * struct argsList - structure for our format and the corresponding function

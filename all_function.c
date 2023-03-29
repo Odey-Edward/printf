@@ -76,3 +76,65 @@ int print_cent(va_list arg)
 	va_end(percent);
 	return (count);
 }
+
+/**
+ * print_dec - print decimal
+ * @arg: argument list
+ * Return: length of argument
+ */
+
+int print_dec(va_list arg)
+{
+	int nums = va_arg(arg, int);
+	int i, count = 0;
+	int numArr[10];
+
+	i = 0;
+	while (nums != 0)
+	{
+		numArr[i] = nums % 10;
+		nums = nums / 10;
+		if (nums == 0)
+			break;
+
+		i++;
+	}
+
+	for (; i >= 0; i--)
+	{
+		count += _putchar('0' + numArr[i]);
+	}
+
+	return (count);
+}
+
+/**
+ * print_int - print integer
+ * @arg: list of arguments
+ * Return: length of arguments
+ */
+
+int print_int(va_list arg)
+{
+	int nums = va_arg(arg, int);
+	int i, count = 0;
+	int numArr[10];
+
+	i = 0;
+	while (nums != 0)
+	{
+		numArr[i] = nums % 10;
+		nums = nums / 10;
+		if (nums == 0)
+			break;
+
+		i++;
+	}
+
+	for (; i >= 0; i--)
+	{
+		count += _putchar('0' + numArr[i]);
+	}
+
+	return (count);
+}

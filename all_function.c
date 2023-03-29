@@ -121,19 +121,41 @@ int print_int(va_list arg)
 	int numArr[10];
 
 	i = 0;
-	while (nums != 0)
-	{
-		numArr[i] = nums % 10;
-		nums = nums / 10;
-		if (nums == 0)
-			break;
 
-		i++;
+	if (nums < 0)
+	{
+
+		count += _putchar('-');
+		while (nums != 0)
+		{
+			numArr[i] = nums % 10;
+			nums = nums / 10;
+			if (nums == 0)
+				break;
+
+			i++;
+		}
+		for (; i >= 0; i--)
+		{
+			count += _putchar('0' + numArr[i]);
+		}
 	}
 
-	for (; i >= 0; i--)
+	if (nums > 0)
 	{
-		count += _putchar('0' + numArr[i]);
+		while (nums != 0)
+		{
+			numArr[i] = nums % 10;
+			nums = nums / 10;
+			if (nums == 0)
+				break;
+
+			i++;
+		}
+		for (; i >= 0; i--)
+		{
+			count += _putchar('0' + numArr[i]);
+		}
 	}
 
 	return (count);

@@ -1,23 +1,18 @@
 #include "main.h"
-
 /**
  * _printf - produces output according to a format
  * @format: is a character string
  * Return: numbers of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int i, count = 0, value;
-	int (*func)(va_list);
+	int i, count = 0, value, (*func)(va_list);
 
 	if (!format)
-	{
 		return (0);
-	}
-	va_start(arg, format);
 
+	va_start(arg, format);
 	i = 0;
 	while (*(format + i))
 	{
@@ -35,21 +30,11 @@ int _printf(const char *format, ...)
 			{
 				value = func(arg);
 				count += value;
-				if (format[i + 2] != '\0')
-				{
-					i += 2;
-					continue;
-				}
-				else
-				{
-					break;
-				}
+				i += 2;
+				continue;
 			}
 			else
 			{
-				value = _putchar(format[i]);
-				count += value;
-				i++;
 				value = _putchar(format[i]);
 				count += value;
 				i++;

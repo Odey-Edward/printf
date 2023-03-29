@@ -33,6 +33,7 @@ int print_str(va_list arg)
 	if (str == NULL)
 	{
 		va_list arg2;
+
 		va_copy(arg2, arg);
 
 		str2 = va_arg(arg2, char *);

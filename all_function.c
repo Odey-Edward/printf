@@ -25,13 +25,25 @@ int print_char(va_list arg)
  */
 int print_str(va_list arg)
 {
-	char *str;
+	char *str, *str2;
 	int count = 0, i;
 
 	str = va_arg(arg, char *);
+
 	if (str == NULL)
 	{
-		return (count);
+		va_list arg2;
+		va_copy(arg2, arg);
+
+		str2 = va_arg(arg2, char *);
+		str2 = "(null)";
+
+		for (i = 0; str2[i]; i++)
+		{
+			_putchar(str2[i]);
+		}
+		va_end(arg2);
+		return (0);
 	}
 
 	i = 0;

@@ -12,6 +12,10 @@ int _printf(const char *format, ...)
 	int i, count = 0, value;
 	int (*func)(va_list);
 
+	if (!format)
+	{
+		return (0);
+	}
 	va_start(arg, format);
 
 	i = 0;
@@ -40,6 +44,16 @@ int _printf(const char *format, ...)
 				{
 					break;
 				}
+			}
+			else
+			{
+				value = _putchar(format[i]);
+				count += value;
+				i++;
+				value = _putchar(format[i]);
+				count += value;
+				i++;
+				continue;
 			}
 		}
 	}

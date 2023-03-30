@@ -100,6 +100,7 @@ int print_dec(va_list arg)
 		if (nums == INT_MIN)
 			nums = INT_MAX;
 		nums = _abs(nums);
+		// nums *= -1;
 		while (nums != 0)
 		{
 			numArr[i] = nums % 10;
@@ -144,6 +145,7 @@ int print_int(va_list arg)
 		if (nums == INT_MIN)
 			nums = INT_MAX;
 		nums = _abs(nums);
+		// nums *= -1;
 
 		if (nums < 0)
 		{

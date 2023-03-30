@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -86,24 +87,33 @@ int print_cent(va_list arg)
 int print_dec(va_list arg)
 {
 	int nums = va_arg(arg, int);
-	int i, count = 0;
+	int i = 0, count = 0, n = nums;
 	int numArr[10];
 
-	i = 0;
-	while (nums != 0)
+	if (nums != 0)
 	{
-		numArr[i] = nums % 10;
-		nums = nums / 10;
-		if (nums == 0)
-			break;
+		if (nums < 0)
+			nums = -((int)nums);
 
-		i++;
-	}
+		while (nums != 0)
+		{
+			numArr[i] = nums % 10;
+			nums = nums / 10;
+			if (nums == 0)
+				break;
 
-	for (; i >= 0; i--)
-	{
-		count += _putchar('0' + numArr[i]);
+			i++;
+		}
+
+		if (n < 0)
+			count += _putchar('-');
+		for (; i >= 0; i--)
+		{
+			count += _putchar('0' + numArr[i]);
+		}
 	}
+	else
+		count += _putchar('0');
 
 	return (count);
 }
@@ -117,15 +127,14 @@ int print_dec(va_list arg)
 int print_int(va_list arg)
 {
 	int nums = va_arg(arg, int);
-	int i, count = 0;
+	int i = 0, count = 0, n = nums;
 	int numArr[10];
 
-	i = 0;
-
-	if (nums < 0)
+	if (nums != 0)
 	{
+		if (nums < 0)
+			nums = -((int)nums);
 
-		count += _putchar('-');
 		while (nums != 0)
 		{
 			numArr[i] = nums % 10;
@@ -135,28 +144,16 @@ int print_int(va_list arg)
 
 			i++;
 		}
+
+		if (n < 0)
+			count += _putchar('-');
 		for (; i >= 0; i--)
 		{
 			count += _putchar('0' + numArr[i]);
 		}
 	}
-
-	if (nums > 0)
-	{
-		while (nums != 0)
-		{
-			numArr[i] = nums % 10;
-			nums = nums / 10;
-			if (nums == 0)
-				break;
-
-			i++;
-		}
-		for (; i >= 0; i--)
-		{
-			count += _putchar('0' + numArr[i]);
-		}
-	}
+	else
+		count += _putchar('0');
 
 	return (count);
 }

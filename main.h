@@ -13,7 +13,6 @@ int print_cent(va_list arg);
 int print_dec(va_list arg);
 int print_int(va_list arg);
 int _putchar(char c);
-int _abs(int n);
 
 /**
  * struct argsList - structure for our format and the corresponding function

@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 int (*check_specifier(const char *c))(va_list arg);
@@ -13,6 +14,7 @@ int print_cent(va_list arg);
 int print_dec(va_list arg);
 int print_int(va_list arg);
 int _putchar(char c);
+int _abs(int n);
 
 /**
  * struct argsList - structure for our format and the corresponding function

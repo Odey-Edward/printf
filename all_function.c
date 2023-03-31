@@ -1,6 +1,5 @@
 #include <stdarg.h>
 #include <unistd.h>
-#include <limits.h>
 #include "main.h"
 
 /**
@@ -80,42 +79,51 @@ int print_cent(va_list arg)
 
 /**
  * print_dec - print decimal
- * @arg: argument list
+ * @args: argument list
  * Return: length of argument
  */
-
-int print_dec(va_list arg)
+int print_dec(va_list args)
 {
-	int nums = va_arg(arg, int);
-	int i = 0, count = 0, n = nums;
-	int numArr[10];
+	int i = 0;
+	int count = 0;
+	long int numb;
+	int my_arr[10];
+	char x[1];
 
-	if (nums != 0)
+	/*Fetch integer from variadic parameters*/
+	numb = va_arg(args, int);
+	if (numb < 0)
 	{
-		if (nums < 0)
-			nums = -((int)nums);
-
-		while (nums != 0)
-		{
-			numArr[i] = nums % 10;
-			nums = nums / 10;
-			if (nums == 0)
-				break;
-
-			i++;
-		}
-
-		if (n < 0)
-			count += _putchar('-');
-		for (; i >= 0; i--)
-		{
-			count += _putchar('0' + numArr[i]);
-		}
+		numb = -((long int)(numb));
+		count = _putchar('-');
 	}
-	else
-		count += _putchar('0');
+	if (numb > 0)
+	{
+		/*Break the numbers apart and assign them to array*/
+		while (numb != 0)
+		{
+			my_arr[i] = (numb % 10);
+			numb = numb / 10;
+			if (numb == 0)
+			{
+				break;
+			}
+				i++;
+		}
+		/*Write the contents of the array to stdout*/
+		for ((void)i; i >= 0; i--)
+		{
+			x[0] = ('0' + my_arr[i]); /*Convert int to char*/
+			count += _putchar(x[0]);
+		}
 
-	return (count);
+		return (count);
+	}
+	if (numb == 0)
+	{
+		count = _putchar(numb + '0');
+	}
+		return (count);
 }
 
 /**
@@ -123,37 +131,46 @@ int print_dec(va_list arg)
  * @arg: list of arguments
  * Return: length of arguments
  */
-
 int print_int(va_list arg)
 {
-	int nums = va_arg(arg, int);
-	int i = 0, count = 0, n = nums;
-	int numArr[10];
+	int i = 0;
+	int count = 0;
+	long int numb;
+	int my_arr[10];
+	char x[1];
 
-	if (nums != 0)
+	/*Fetch integer from variadic parameters*/
+	numb = va_arg(arg, int);
+	if (numb < 0)
 	{
-		if (nums < 0)
-			nums = -((int)nums);
-
-		while (nums != 0)
-		{
-			numArr[i] = nums % 10;
-			nums = nums / 10;
-			if (nums == 0)
-				break;
-
-			i++;
-		}
-
-		if (n < 0)
-			count += _putchar('-');
-		for (; i >= 0; i--)
-		{
-			count += _putchar('0' + numArr[i]);
-		}
+		numb = -((long int)(numb));
+		count = _putchar('-');
 	}
-	else
-		count += _putchar('0');
+	if (numb > 0)
+	{
+		/*Break the numbers apart and assign them to array*/
+		while (numb != 0)
+		{
+			my_arr[i] = (numb % 10);
+			numb = numb / 10;
+			if (numb == 0)
+			{
+				break;
+			}
+				i++;
+		}
+		/*Write the contents of the array to stdout*/
+		for ((void)i; i >= 0; i--)
+		{
+			x[0] = ('0' + my_arr[i]); /*Convert int to char*/
+			count += _putchar(x[0]);
+		}
 
-	return (count);
+		return (count);
+	}
+	if (numb == 0)
+	{
+		count = _putchar(numb + '0');
+	}
+		return (count);
 }

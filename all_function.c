@@ -26,7 +26,7 @@ int print_char(va_list arg)
 int print_str(va_list arg)
 {
 	char *str, *str2;
-	int count = 0, i;
+	int count = 0, i, value = 0;
 
 	str = va_arg(arg, char *);
 
@@ -41,10 +41,11 @@ int print_str(va_list arg)
 
 		for (i = 0; str2[i]; i++)
 		{
-			_putchar(str2[i]);
+			value = _putchar(str2[i]);
+			count += value;
 		}
 		va_end(arg2);
-		return (0);
+		return (count);
 	}
 
 	i = 0;

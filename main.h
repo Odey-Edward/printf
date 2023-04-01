@@ -15,6 +15,7 @@ int print_dec(va_list arg);
 int print_int(va_list arg);
 int _putchar(char c);
 int _abs(int n);
+int check_format(const char *format);
 
 /**
  * struct argsList - structure for our format and the corresponding function

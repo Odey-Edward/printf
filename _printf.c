@@ -9,11 +9,6 @@ int _printf(const char *format, ...)
 	va_list arg;
 	int i, count = 0, value, (*func)(va_list);
 
-	count = check_format(format);
-
-	if (count == 0)
-		return (count);
-
 	va_start(arg, format);
 	i = 0;
 	while (*(format + i))
@@ -46,23 +41,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(arg);
 	return (count);
-}
-
-/**
-* check_format - check format string
-* @format: The string to check for
-* Return: count
-*/
-int check_format(const char *format)
-{
-	if (!format)
-	{
-		return (0);
-	}
-	if ((format[0] == '%') &&
-		(format[1] == '\0'))
-	{
-		return (0);
-	}
-	return (1);
 }
